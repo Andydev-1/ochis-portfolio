@@ -10,8 +10,8 @@ const brandLogos = [
 ];
 
 const focusStats = [
-  { label: "Years crafting experiences", value: "05+" },
-  { label: "Publications/Projects", value: "10+" },
+  { label: "Years academic and research experiences", value: "05+" },
+  { label: "Awaiting Publications/Projects", value: "1+" },
   { label: "Certified Programs", value: "8+" },
 ];
 
@@ -277,7 +277,7 @@ const socialLinks = [
     value: "Ikpaochanya60@gmail.com",
     href: "mailto:Ikpaochanya60@gmail.com",
   },
-  { label: "Behance", value: "@ikpa.designs" },
+  { label: "instagram", value: "@essentials_reo4" },
   {
     label: "LinkedIn",
     value: "/in/ikpa-ochanya",
@@ -304,7 +304,7 @@ const socialLinks = [
           <span>Ikpa Ochanya Euginia</span>
         </div>
         <!-- Hamburger menu for mobile -->
-      
+
         <div class="nav-links" :class="{ show: navOpen }">
           <a href="#about" @click="navOpen = false">About</a>
           <a href="#skills" @click="navOpen = false">Skills</a>
@@ -317,7 +317,7 @@ const socialLinks = [
         <!-- Backdrop for mobile overlay -->
         <div v-if="navOpen" class="nav-backdrop" @click="navOpen = false"></div>
       </nav>
-      
+
       <div class="hero-content">
         <p class="eyebrow">
           International Relations Analyst · Global Policy Storyteller
@@ -601,11 +601,14 @@ const socialLinks = [
     <section class="callout" id="contact">
       <div class="callout-content">
         <p class="eyebrow small">Let’s Build</p>
-        <h2>Ready for design that’s magnetic, measurable, and deeply human?</h2>
+        <h2>
+          Ready for strategies that build peace, support communities, and
+          promote sustainable development?
+        </h2>
         <p>
-          Tell Ikpa about the product, story, or system you’re dreaming up.
-          She’ll bring the clarity, moodboards, and prototypes that get
-          investors and customers excited.
+          Have a vision that touches communities or sparks global dialogue?
+          Reach out—I’m always excited to connect with people building a more
+          peaceful and inclusive world.
         </p>
         <div class="contact-grid">
           <article v-for="link in socialLinks" :key="link.label">
