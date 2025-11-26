@@ -96,67 +96,67 @@ const certificationMarquee = [...certifications, ...certifications];
 
 const projects = [
   {
-    title: "Aurora Finance Mobile",
+    title: "vellz Africa back to school project",
     description:
-      "Crafted a calm yet confident banking companion that increased sign-ups by 42% through thoughtful onboarding and biometrics.",
-    image: new URL("./assets/img/p1.jpg", import.meta.url).href,
-    tags: ["Product Design", "Mobile", "Fintech"],
+      "An outreach project aimed at reducing educational barriers by equipping students with school supplies, mentorship, and motivation to begin the academic year confidently.",
+    image: new URL("./assets/img/p11.jpg", import.meta.url).href,
+    tags: ["Outreach", "Community", "Education"],
   },
   {
-    title: "Nova Logistics Command",
+    title: "National Disability Summit",
     description:
-      "Visibility dashboards and operational twins that keep multi-city logistics humming with clarity.",
+      "A summit aimed at raising awareness about the rights of persons with disabilities and promoting their inclusion in society.",
     image: new URL("./assets/img/p2.jpg", import.meta.url).href,
-    tags: ["Dashboards", "B2B SaaS", "Systems"],
+    tags: ["Summit", "Disability", "Inclusion"],
   },
   {
-    title: "Harbor Wellness OS",
+    title: "vellz Africa back to school project",
     description:
-      "A holistic care companion pairing biometrics with mindful rituals for post-discharge journeys.",
-    image: new URL("./assets/img/p3.jpg", import.meta.url).href,
-    tags: ["Healthcare", "Product", "Research"],
+      "A community-driven initiative providing educational support, learning materials, and encouragement to young students returning to school across local communities.",
+    image: new URL("./assets/img/p10.jpg", import.meta.url).href,
+    tags: ["Outreach", "Community", "Education"],
   },
   {
-    title: "Kardia Health Platform",
+    title: "National disability summit day1",
     description:
-      "Built a diagnostic dashboard marrying clinical clarity with delightful visuals for faster, human-centered decision making.",
+      "A documentation project capturing powerful moments, faces, and stories from the National Disability Summit.",
     image: new URL("./assets/img/p4.jpg", import.meta.url).href,
-    tags: ["UX Strategy", "Data Viz", "Healthcare"],
+    tags: ["Summit", "Disability", "Inclusion"],
   },
   {
-    title: "Solstice Fashion Capsule",
+    title: "National disability summit day2",
     description:
-      "Immersive retail microsite marrying cinematic photography with tactile interactions.",
+      "A visual coverage project focused on documenting participation, representation, and impactful interactions throughout the National Disability Summit.",
     image: new URL("./assets/img/p5.jpg", import.meta.url).href,
-    tags: ["E-commerce", "Art Direction", "Motion"],
+    tags: ["Summit", "Disability", "Inclusion"],
   },
   {
-    title: "Verve Publisher Kits",
+    title: "National disability summit day3",
     description:
-      "Modular editorial templates so indie publishers launch drop-ready, beautifully typeset issues.",
+      "A session focused on promoting workplace inclusivity through legal rights, organizational policies, and best practices that support employees with disabilities and foster equal participation.",
     image: new URL("./assets/img/p6.jpg", import.meta.url).href,
-    tags: ["Brand Systems", "Editorial", "Tooling"],
+    tags: ["Rights", "Benefits", "Inclusion"],
   },
   {
-    title: "Wanderly Travel Suite",
+    title: "vellz Africa back to school project cont.",
     description:
-      "Reimagined travel bookings with cinematic storytelling, dynamic typography, and motion cues across devices.",
+      "A continuation of the outreach project aimed at reducing educational barriers by equipping students with school supplies, mentorship, and motivation to begin the academic year confidently.",
     image: new URL("./assets/img/p7.jpg", import.meta.url).href,
-    tags: ["Art Direction", "Responsive", "Story Design"],
+    tags: ["Outreach", "Community", "Education"],
   },
   {
-    title: "Studio Lumen Rebrand",
+    title: "vellz Africa back to school project cont.",
     description:
-      "Visual identity and interactive portfolio for a boutique architecture studio with luminous materials.",
+      "A continuation of the outreach project aimed at reducing educational barriers by equipping students with school supplies, mentorship, and motivation to begin the academic year confidently.",
     image: new URL("./assets/img/p8.jpg", import.meta.url).href,
     tags: ["Visual Identity", "WebGL", "Portfolio"],
   },
   {
-    title: "Oasis Living Platform",
+    title: "vellz Africa back to school project cont.",
     description:
-      "Smart-living ecosystem translating data into soothing UI for residents and operators alike.",
+      "A continuation of the outreach project aimed at reducing educational barriers by equipping students with school supplies, mentorship, and motivation to begin the academic year confidently.",
     image: new URL("./assets/img/p9.jpg", import.meta.url).href,
-    tags: ["IoT", "Product Strategy", "Smart Living"],
+    tags: ["Outreach", "Community", "Education"],
   },
 ];
 
