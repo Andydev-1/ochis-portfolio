@@ -96,7 +96,7 @@ const certificationMarquee = [...certifications, ...certifications];
 
 const projects = [
   {
-    title: "vellz Africa back to school project",
+    title: "Bellz Africa back to school project",
     description:
       "An outreach project aimed at reducing educational barriers by equipping students with school supplies, mentorship, and motivation to begin the academic year confidently.",
     image: new URL("./assets/img/p11.jpg", import.meta.url).href,
@@ -110,7 +110,7 @@ const projects = [
     tags: ["Summit", "Disability", "Inclusion"],
   },
   {
-    title: "vellz Africa back to school project",
+    title: "Bellz Africa back to school project",
     description:
       "A community-driven initiative providing educational support, learning materials, and encouragement to young students returning to school across local communities.",
     image: new URL("./assets/img/p10.jpg", import.meta.url).href,
@@ -138,21 +138,21 @@ const projects = [
     tags: ["Rights", "Benefits", "Inclusion"],
   },
   {
-    title: "vellz Africa back to school project cont.",
+    title: "Bellz Africa back to school project cont.",
     description:
       "A continuation of the outreach project aimed at reducing educational barriers by equipping students with school supplies, mentorship, and motivation to begin the academic year confidently.",
     image: new URL("./assets/img/p7.jpg", import.meta.url).href,
     tags: ["Outreach", "Community", "Education"],
   },
   {
-    title: "vellz Africa back to school project cont.",
+    title: "Bellz Africa back to school project cont.",
     description:
       "A continuation of the outreach project aimed at reducing educational barriers by equipping students with school supplies, mentorship, and motivation to begin the academic year confidently.",
     image: new URL("./assets/img/p8.jpg", import.meta.url).href,
     tags: ["Visual Identity", "WebGL", "Portfolio"],
   },
   {
-    title: "vellz Africa back to school project cont.",
+    title: "Bellz Africa back to school project cont.",
     description:
       "A continuation of the outreach project aimed at reducing educational barriers by equipping students with school supplies, mentorship, and motivation to begin the academic year confidently.",
     image: new URL("./assets/img/p9.jpg", import.meta.url).href,
