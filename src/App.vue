@@ -154,7 +154,7 @@ const projects = [
   {
     title: "Ochanya during a federal road safety commission outreach",
     description:
-      "A continuation of the outreach project aimed at reducing educational barriers by equipping students with school supplies, mentorship, and motivation to begin the academic year confidently.",
+      "Captured during an FRSC outreach where Ochanya supported community sensitization on road safety, responsible driving, and public awareness.",
     image: new URL("./assets/img/p12.jpg", import.meta.url).href,
     tags: ["Outreach", "Community", "Education"],
   },
