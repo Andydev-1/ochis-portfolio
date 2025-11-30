@@ -138,24 +138,24 @@ const projects = [
     tags: ["Rights", "Benefits", "Inclusion"],
   },
   {
-    title: "Bellz Africa back to school project cont.",
+    title: "self led sustainable development project",
     description:
       "A continuation of the outreach project aimed at reducing educational barriers by equipping students with school supplies, mentorship, and motivation to begin the academic year confidently.",
     image: new URL("./assets/img/p7.jpg", import.meta.url).href,
     tags: ["Outreach", "Community", "Education"],
   },
   {
-    title: "Bellz Africa back to school project cont.",
+    title: "self led sustainable development project cont.",
     description:
       "A continuation of the outreach project aimed at reducing educational barriers by equipping students with school supplies, mentorship, and motivation to begin the academic year confidently.",
     image: new URL("./assets/img/p8.jpg", import.meta.url).href,
     tags: ["Visual Identity", "WebGL", "Portfolio"],
   },
   {
-    title: "Bellz Africa back to school project cont.",
+    title: "Ochanya during a federal road safety commission outreach",
     description:
       "A continuation of the outreach project aimed at reducing educational barriers by equipping students with school supplies, mentorship, and motivation to begin the academic year confidently.",
-    image: new URL("./assets/img/p9.jpg", import.meta.url).href,
+    image: new URL("./assets/img/p12.jpg", import.meta.url).href,
     tags: ["Outreach", "Community", "Education"],
   },
 ];
