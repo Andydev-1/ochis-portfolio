@@ -1,18 +1,31 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount, nextTick } from "vue";
 
-const heroVideo = new URL("./assets/img/pv1.mp4", import.meta.url).href;
+const navOpen = ref(false);
+const portrait = new URL("./assets/img/p16.jpeg", import.meta.url).href;
+const closeMenuOnEscape = (event) => {
+  if (event.key === "Escape" && navOpen.value) {
+    navOpen.value = false;
+    document.getElementById("menu-toggle")?.focus();
+  }
+};
 
 const brandLogos = [
   new URL("./assets/img/log1.jpg", import.meta.url).href,
-  new URL("./assets/img/log2.jpg", import.meta.url).href,
-  new URL("./assets/img/log3.jpg", import.meta.url).href,
+  new URL("./assets/img/p22.jpeg", import.meta.url).href,
+  new URL("./assets/img/p23.jpeg", import.meta.url).href,
 ];
 
 const focusStats = [
-  { label: "Years academic and research experiences", value: "05+" },
-  { label: "Awaiting Publications/Projects", value: "1+" },
-  { label: "Certified Programs", value: "8+" },
+  { label: "Years of academic and research experience", value: "04" },
+  { label: "Awaiting publications / projects", value: "1+" },
+  { label: "Certifications featured", value: "07" },
+];
+
+const impactStats = [
+  { value: "240", label: "Students reached through a self-led SDG project" },
+  { value: "100", label: "Children supported through BELLZ Africa’s school outreach" },
+  { value: "10", label: "Team members on a school first-aid initiative" },
 ];
 
 const skillSets = [
@@ -149,7 +162,7 @@ const projects = [
     description:
       "A continuation of the outreach project aimed at reducing educational barriers by equipping students with school supplies, mentorship, and motivation to begin the academic year confidently.",
     image: new URL("./assets/img/p8.jpg", import.meta.url).href,
-    tags: ["Visual Identity", "WebGL", "Portfolio"],
+    tags: ["Outreach", "Community", "Education"],
   },
   {
     title: "Ochanya during a federal road safety commission outreach",
@@ -160,10 +173,7 @@ const projects = [
   },
 ];
 
-const projectMarquee = [...projects, ...projects];
-
 const certMarqueeRef = ref(null);
-const projectMarqueeRef = ref(null);
 
 const setupMarqueeInteractions = (containerRef, speed = 0.4) => {
   const el = containerRef.value;
@@ -261,13 +271,14 @@ const setupMarqueeInteractions = (containerRef, speed = 0.4) => {
 const cleanupFns = [];
 
 onMounted(() => {
+  document.addEventListener("keydown", closeMenuOnEscape);
   nextTick(() => {
     cleanupFns.push(setupMarqueeInteractions(certMarqueeRef, 0.35));
-    cleanupFns.push(setupMarqueeInteractions(projectMarqueeRef, 0.5));
   });
 });
 
 onBeforeUnmount(() => {
+  document.removeEventListener("keydown", closeMenuOnEscape);
   cleanupFns.forEach((stop) => stop && stop());
 });
 
@@ -288,36 +299,26 @@ const socialLinks = [
 
 <template>
   <div class="page">
-    <header class="hero" id="home">
-      <video
-        class="hero-video"
-        :src="heroVideo"
-        autoplay
-        muted
-        loop
-        playsinline
-      ></video>
-      <div class="hero-overlay"></div>
-      <nav class="nav" :class="{ 'nav--mobile-open': navOpen }">
-        <div class="brand">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+      <nav class="nav" aria-label="Main navigation" :class="{ 'nav--mobile-open': navOpen }">
+        <a class="brand" href="#home" @click="navOpen = false" aria-label="Ikpa Ochanya Euginia — home">
           <span class="brand-mark">IOE</span>
-          <span>Ikpa Ochanya Euginia</span>
-        </div>
-        <!-- Hamburger menu for mobile -->
-
-        <div class="nav-links" :class="{ show: navOpen }">
+          <span>Ochanya Ikpa<span class="brand-caption">International Relations & Development</span></span>
+        </a>
+        <button id="menu-toggle" class="menu-toggle" type="button" :aria-expanded="navOpen" aria-controls="navigation-links" @click="navOpen = !navOpen">{{ navOpen ? 'Close' : 'Menu' }} <span aria-hidden="true">{{ navOpen ? '−' : '+' }}</span></button>
+        <div id="navigation-links" class="nav-links" :class="{ show: navOpen }">
           <a href="#about" @click="navOpen = false">About</a>
+          <a href="#volunteer" @click="navOpen = false">Experience</a>
           <a href="#skills" @click="navOpen = false">Skills</a>
           <a href="#certifications" @click="navOpen = false">Certifications</a>
-          <a href="#projects" @click="navOpen = false">Projects</a>
+          <a href="#projects" @click="navOpen = false">Impact</a>
           <a href="#contact" class="pill" @click="navOpen = false"
             >Let’s Talk</a
           >
         </div>
-        <!-- Backdrop for mobile overlay -->
-        <div v-if="navOpen" class="nav-backdrop" @click="navOpen = false"></div>
       </nav>
-
+    <main id="main-content" tabindex="-1">
+    <header class="hero" id="home">
       <div class="hero-content">
         <p class="eyebrow">
           International Relations Analyst · Global Policy Storyteller
@@ -330,6 +331,7 @@ const socialLinks = [
           >
         </h1>
         <p class="intro">
+          <strong>International Relations graduate exploring the connections between research, governance, and community-led development.</strong>
           Every global issue carries a story, and I am passionate about
           uncovering the patterns, voices, and policies behind them. Through
           critical research and a commitment to evidence-based thinking, I
@@ -337,45 +339,62 @@ const socialLinks = [
           transform uncertainty into resilience and conflict into opportunity.
         </p>
         <div class="hero-cta">
-          <a class="primary" href="#projects">View Signature Work</a>
-          <a class="ghost" href="#contact">Book a Collaborative Call</a>
+          <a class="primary" href="#projects">Explore my impact <span aria-hidden="true">↗</span></a>
+          <a class="ghost" href="#contact">Get in touch <span aria-hidden="true">→</span></a>
         </div>
-        <div class="hero-stats">
-          <div v-for="stat in focusStats" :key="stat.label">
-            <p class="value">{{ stat.value }}</p>
-            <p class="label">{{ stat.label }}</p>
-          </div>
+        <div class="hero-focus" aria-label="Professional interests">
+          <span>Research & policy</span><span>Peace & security</span><span>Sustainable development</span>
         </div>
       </div>
+      <figure class="hero-portrait">
+        <img :src="portrait" alt="Ochanya Ikpa holding her academic research project" width="810" height="1080" fetchpriority="high" decoding="async" />
+        <figcaption><span>Global perspective.</span><span>Community purpose.</span></figcaption>
+      </figure>
     </header>
 
-    <section class="trusted" id="about">
-      <p class="eyebrow small">Partners & Spotlights</p>
+    <section class="impact-summary" aria-label="Community impact at a glance">
+      <p class="eyebrow small">Purpose in practice</p>
+      <div class="impact-stats">
+        <div v-for="stat in impactStats" :key="stat.label"><p class="value">{{ stat.value }}</p><p>{{ stat.label }}</p></div>
+      </div>
+    </section>
+
+    <section class="trusted" aria-label="Personal and professional moments">
+      <p class="eyebrow small">In the field & along the way</p>
       <div class="logo-row">
         <img
           v-for="(logo, index) in brandLogos"
           :key="index"
           :src="logo"
-          alt="brand logo"
+          :alt="['Ochanya supporting event coordination', 'Ochanya during her academic journey', 'Ochanya with her completed research project'][index]"
+          loading="lazy"
+          decoding="async"
         />
       </div>
     </section>
 
-    <section class="about-grid">
+    <section class="about-grid" id="about" aria-labelledby="about-title">
       <article class="card narrative">
-        <h2>About Ikpa</h2>
+        <p class="eyebrow small">01 / The person behind the work</p>
+        <h2 id="about-title">About Me</h2>
         <p>
           I am an International Relations graduate with four years of academic
           and research experience, passionate about understanding and addressing
           complex global challenges. My expertise spans policy analysis,
           academic research, and cross-cultural communication, which I apply to
           exploring how public policy, global cooperation, and sustainable
-          development intersect to create meaningful change. Beyond policy, I am
+          development intersect to create meaningful change.
+        </p>
+        <p>
+          Beyond policy, I am
           deeply interested in global peace and security strategies,
           humanitarian intervention, and conflict resolution. I aim to
           understand how multilateral engagement, strategic diplomacy, and
           collaborative approaches can prevent conflict, support vulnerable
-          populations, and promote stability worldwide. Driven by a commitment
+          populations, and promote stability worldwide.
+        </p>
+        <p>
+          Driven by a commitment
           to evidence-based solutions, I strive to apply global perspectives to
           strengthen policy formulation, peacebuilding, and development
           initiatives within my locality and beyond. My goal is to contribute to
@@ -513,7 +532,7 @@ const socialLinks = [
           :key="item.text"
           class="skill-card"
         >
-          <span class="skill-icon-badge">{{ item.icon }}</span>
+          <span class="skill-icon-badge" aria-hidden="true">{{ String(skillSets[0].items.indexOf(item) + 1).padStart(2, '0') }}</span>
           <span class="skill-card-text">{{ item.text }}</span>
         </div>
       </div>
@@ -569,24 +588,24 @@ const socialLinks = [
 
     <section class="projects" id="projects">
       <div class="section-heading">
-        <p class="eyebrow small">Selected Work</p>
-        <h2>Projects that Feel Elevated Yet Effortless</h2>
+        <p class="eyebrow small">Community engagement / Selected work</p>
+        <h2>Impact Highlights</h2>
         <p>
-          Impact-first stories across industries, each with a bespoke aesthetic
-          signature.
+          Education, inclusion, and sustainable development in practice. A closer
+          look at the projects and community initiatives I have contributed to.
         </p>
       </div>
-      <div class="marquee project-marquee" ref="projectMarqueeRef">
-        <div class="marquee-track">
+      <div class="project-gallery">
           <article
-            v-for="(project, index) in projectMarquee"
+            v-for="(project, index) in projects"
             :key="project.title + index"
             class="project-card"
           >
             <div class="media">
-              <img :src="project.image" :alt="project.title" />
+              <img :src="project.image" :alt="project.title" loading="lazy" decoding="async" width="640" height="480" />
             </div>
             <div class="project-body">
+              <span class="project-number">{{ String(index + 1).padStart(2, '0') }} / Field notes</span>
               <h3>{{ project.title }}</h3>
               <p>{{ project.description }}</p>
               <div class="tags">
@@ -594,13 +613,12 @@ const socialLinks = [
               </div>
             </div>
           </article>
-        </div>
       </div>
     </section>
 
     <section class="callout" id="contact">
       <div class="callout-content">
-        <p class="eyebrow small">Let’s Build</p>
+        <p class="eyebrow small">A conversation can be a starting point</p>
         <h2>
           Ready for strategies that build peace, support communities, and
           promote sustainable development?
@@ -613,25 +631,28 @@ const socialLinks = [
         <div class="contact-grid">
           <article v-for="link in socialLinks" :key="link.label">
             <p class="label">{{ link.label }}</p>
-            <a :href="link.href" target="_blank" rel="noreferrer">{{
+            <a v-if="link.href" :href="link.href" :target="link.label === 'LinkedIn' ? '_blank' : undefined" rel="noopener noreferrer">{{
               link.value
             }}</a>
+            <span v-else>{{ link.value }}</span>
           </article>
         </div>
         <div class="hero-cta">
-          <a class="primary" href="mailto:ikpa.ochanya@gmail.com"
-            >Start a project</a
+          <a class="primary" href="mailto:Ikpaochanya60@gmail.com"
+            >Start a conversation <span aria-hidden="true">↗</span></a
           >
-          <a class="ghost" href="#">Download portfolio</a>
+          <a class="ghost" :href="socialLinks[2].href" target="_blank" rel="noopener noreferrer">Connect on LinkedIn <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
+    </main>
 
     <footer>
       <p>
         © {{ new Date().getFullYear() }} Ikpa Ochanya Euginia — Crafted with
         intention.
       </p>
+      <a href="#home">Back to top ↑</a>
     </footer>
   </div>
 </template>
